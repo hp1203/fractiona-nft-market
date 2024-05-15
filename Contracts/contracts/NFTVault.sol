@@ -8,8 +8,9 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
 import "@openzeppelin/contracts/interfaces/IERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
 
-contract NFTVault is ERC20, ERC20Burnable, Ownable, ERC20Permit, ERC20Votes {
+contract NFTVault is ERC20, ERC20Burnable, Ownable, ERC20Permit, ERC20Votes, ERC721Holder {
     IERC721 public collection;
     uint256 public tokenId;
     bool public initialized = false;
