@@ -1,14 +1,12 @@
 import {
+  Feather,
+  Ionicons,
   MaterialIcons,
 } from "@expo/vector-icons";
 import HomeScreen from "../screens/HomeScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import CustomTabBar from "./CustomTabBar";
 import tailwindColors from "../constants/tailwindColors";
-
-const TabBarButton = () => {
-
-}
   
 const TabNavigation = () => {
   const BottomTab = createBottomTabNavigator();
@@ -34,41 +32,42 @@ const TabNavigation = () => {
           title: "Home",
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name="home" color={color} size={36} />
-          ),
-        }}
-      />
-      {/* <BottomTab.Screen
-        name="MyPets"
-        component={PetsScreen}
-        options={{
-          title: "Pets",
-          tabBarIcon: ({ color }) => (
-            <MaterialIcons name="pets" color={color} size={36} />
+            <Feather name="home" color={color} size={24} />
           ),
         }}
       />
       <BottomTab.Screen
-        name="Notifications"
+        name="FractionalNFT"
         component={HomeScreen}
         options={{
-          title: "More",
+          tabBarLabel: "NFTs",
+          title: "Your Fractional NFTs",
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name="notifications" color={color} size={36} />
+            <Ionicons name="wallet-outline" color={color} size={24} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Staking"
+        component={HomeScreen}
+        options={{
+          title: "Stake NFTs",
+          tabBarIcon: ({ color }) => (
+            <Feather name="bar-chart-2" color={color} size={24} />
           ),
         }}
       />
       <BottomTab.Screen
         name="Settings"
-        component={ProfileScreen}
+        component={HomeScreen}
         options={{
           title: "Settings",
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name="person" color={color} size={36} />
+            <MaterialIcons name="person" color={color} size={24} />
           ),
         }}
-      /> */}
+      />
     </BottomTab.Navigator>
   );
 };

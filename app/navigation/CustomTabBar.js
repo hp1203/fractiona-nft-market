@@ -7,12 +7,8 @@ import tailwindColors from '../constants/tailwindColors';
 const {width} = Dimensions.get('window')
 
 const CustomTabBar = ({ state, descriptors, navigation  }) =>{
-  // console.log("Props", props)
-  const scheme = useColorScheme();
-  const bg = scheme == 'dark' ? "bg-gray-800 " : "bg-gray-50"
-  const iconFocused = scheme == 'dark' ? "bg-gray-800 " : "bg-gray-50"
   return (
-    <View className={`flex flex-row bg-gray-50 dark:bg-gray-900 shadow absolute rounded-3xl bottom-4 mx-4 border border-gray-100 dark:border-gray-800`}>
+    <View className={`flex flex-row justify-evenly p-2 bg-gray-50 dark:bg-gray-700 absolute rounded-full bottom-4 mx-3 border border-gray-100 dark:border-gray-800`}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -22,7 +18,6 @@ const CustomTabBar = ({ state, descriptors, navigation  }) =>{
             ? options.title
             : route.name;
         const icon = options.tabBarIcon;
-        // console.log("Icon",icon)
 
         const isFocused = state.index === index;
 
@@ -38,18 +33,16 @@ const CustomTabBar = ({ state, descriptors, navigation  }) =>{
         };
 
         return (
-          <View key = {index} style = {[styles.mainItemContainer, {borderRightWidth: label=="notes"? 3:0}]}>
+          <View key = {index} style = {[styles.mainItemContainer]}>
             <Pressable
               onPress = {onPress}
-              // style={{backgroundColor: isFocused?"#030D16": "#182028", borderRadius: 20, }}
-              className={`rounded-2xl ${
-                  isFocused && "bg-cyan-100 dark:bg-gray-700"
+              className={`rounded-full ${
+                  isFocused && "bg-yellow-400 dark:bg-gray-700"
               }`}
             >
-              <View style={{justifyContent: 'center', alignItems: 'center', flex: 1, padding: 10 }}>
-                {/* <NavigationIcon route={label} isFocused={isFocused}/> */}
-                <Text style={{ color: isFocused ? tailwindColors.cyan[500] : '#414141' }}>{icon("#fff")}</Text>
-                {/* <Text className={`${scheme == "dark" ? "text-gray-50" : "text-gray-700"} text-xs font-light`}>{label}</Text> */}
+              <View style={{justifyContent: 'center', alignItems: 'center', flex: 1, flexDirection:"row", padding: 10, gap: 5, paddingHorizontal:15 }} className="rounded-full">
+                <Text style={{ color: isFocused ? tailwindColors.gray[900] : tailwindColors.gray[500] }}>{icon("#fff")}</Text>
+                {isFocused && <Text className="text-sm font-semibold" style={{ color: isFocused ? tailwindColors.gray[900] : tailwindColors.gray[500], fontWeight: "700", fontSize: 12 }}>{label}</Text>}
               </View>
             </Pressable>
           </View>
@@ -60,19 +53,14 @@ const CustomTabBar = ({ state, descriptors, navigation  }) =>{
 }
 
 const styles = StyleSheet.create({
-  mainContainer: {
-    flexDirection: 'row',
-    position: 'absolute',
-    bottom: 25,
-    backgroundColor: "#182028",
-    borderRadius: 25,
-    marginHorizontal: width*0.1
-  },
+  
   mainItemContainer: {
     flex: 1,
     justifyContent: 'center', 
     alignItems: 'center', 
-    marginVertical: 10,
+    // margin: 10,
+    // marginHorizontal:15,
+    // borderWidth:1,
     borderRadius: 1, 
     borderColor: "#333B42"
   }, 

@@ -3,8 +3,14 @@ import { Feather } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { Image, SafeAreaView, Text, TouchableOpacity, View } from "react-native";
 import tailwindColors from "../../constants/tailwindColors";
-
+import { useDispatch } from "react-redux";
+import { loginUser, logoutUser } from "../../store/authConfig";
 const GettingStarted = () => {
+  const dispatch = useDispatch();
+  const login = () => {
+    dispatch(loginUser("sdsdfsdfsdf"))
+  }
+
   return (
     <View className="flex h-full bg-gray-900 w-full relative">
     <View className="flex h-full bg-gray-900 w-full ">
@@ -101,7 +107,7 @@ const GettingStarted = () => {
             fractions.
           </Text>
 
-          <TouchableOpacity className="bg-white absolute bottom-8 flex flex-row p-1 rounded-full">
+          <TouchableOpacity className="bg-gray-50 absolute bottom-8 flex flex-row p-1 rounded-full" onPress={login}>
             <View className="flex-1 p-4">
               <Text className="text-xl font-semibold">Start Experience</Text>
             </View>

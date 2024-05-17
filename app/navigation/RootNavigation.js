@@ -3,11 +3,12 @@ import AuthNavigation from "./AuthNavigation";
 import TabNavigation from "./TabNavigation";
 import tailwindColors from "../constants/tailwindColors";
 import { useSelector } from "react-redux";
+import SingleNFTScreen from "../screens/SingleNFTScreen";
 
 const RootNavigation = () => {
   const RootStack = createNativeStackNavigator();
   const { isLogin, access_token } = useSelector((state) => state.authconfig);
-  console.log("Access Token", access_token);
+  // console.log("Access Token", access_token);
   if (!isLogin) {
     return <AuthNavigation />;
   }
@@ -36,6 +37,13 @@ const RootNavigation = () => {
         component={TabNavigation}
         options={{
           headerShown: false,
+        }}
+      />
+      <RootStack.Screen
+        name="SingleNFT"
+        component={SingleNFTScreen}
+        options={{
+          headerShown: false
         }}
       />
     </RootStack.Navigator>
