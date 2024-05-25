@@ -17,7 +17,7 @@ import {
 
 // 1. Get projectId at https://cloud.walletconnect.com
 const projectId = process.env.WALLETCONNECT_API_KEY;
-
+console.log(projectId);
 // 2. Create config
 const metadata = {
   name: "NFTFraction",

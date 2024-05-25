@@ -2,8 +2,8 @@ import { Alchemy, Network } from "alchemy-sdk";
 
 export default () => {
   const settings = {
-    apiKey: "2W7nnlFNFkzlp-n_fPMsltYin6vYuPiJ",
-    network: Network.MATIC_MAINNET,
+    apiKey: process.env.ALCHEMY_API_KEY,
+    network: Network.POLYGONZKEVM_TESTNET,
   };
 
   const alchemy = new Alchemy(settings);

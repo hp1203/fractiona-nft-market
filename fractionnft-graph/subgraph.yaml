@@ -1,0 +1,26 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: FractionalNFTFactory
+    network: polygon-zkevm-cardona
+    source:
+      address: "0xbF30dB84c6AA2Cb0a4b09B72a0295eB13f3Bbe0D"
+      abi: FractionalNFTFactory
+      startBlock: 3453125
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - FractionalNFTCreated
+      abis:
+        - name: FractionalNFTFactory
+          file: ./abis/FractionalNFTFactory.json
+      eventHandlers:
+        - event: FractionalNFTCreated(indexed address,address)
+          handler: handleFractionalNFTCreated
+      file: ./src/fractional-nft-factory.ts
