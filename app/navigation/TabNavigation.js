@@ -7,6 +7,7 @@ import HomeScreen from "../screens/HomeScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import CustomTabBar from "./CustomTabBar";
 import tailwindColors from "../constants/tailwindColors";
+import UserNFTsScreen from "../screens/UserNFTsScreen";
   
 const TabNavigation = () => {
   const BottomTab = createBottomTabNavigator();
@@ -37,8 +38,8 @@ const TabNavigation = () => {
         }}
       />
       <BottomTab.Screen
-        name="FractionalNFT"
-        component={HomeScreen}
+        name="UserNFT"
+        component={UserNFTsScreen}
         options={{
           tabBarLabel: "NFTs",
           title: "Your Fractional NFTs",

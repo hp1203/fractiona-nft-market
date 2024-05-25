@@ -1,0 +1,64 @@
+{
+  "acquiredAt": "",
+  "collection": {
+    "bannerImageUrl": "https://i.seadn.io/gae/rlt3QXGUZ-kcPUzCyT46sbR95TEisLSWDV2s9Hjk6EYDD-j6aXuYFRtXgWMChOOLQu4CLPhNGvSCzUdyEYv6nCaWlW0UlFm9KF0doA?w=500&auto=format",
+    "externalUrl": "",
+    "name": "LearnWeb3 DAO Graduates",
+    "slug": "learnweb3"
+  },
+  "contract": {
+    "address": "0x1Ed25648382c2e6Da067313e5DAcb4F138Bc8b33",
+    "contractDeployer": "0xFd7736371d52725527294844b95aA92bBD4B8724",
+    "deployedBlockNumber": 25159561,
+    "isSpam": "",
+    "name": "",
+    "openSeaMetadata": {
+      "bannerImageUrl": "https://i.seadn.io/gae/rlt3QXGUZ-kcPUzCyT46sbR95TEisLSWDV2s9Hjk6EYDD-j6aXuYFRtXgWMChOOLQu4CLPhNGvSCzUdyEYv6nCaWlW0UlFm9KF0doA?w=500&auto=format",
+      "collectionName": "LearnWeb3 DAO Graduates",
+      "collectionSlug": "learnweb3",
+      "description": "[DEPRECATED] New NFT Collection at [LearnWeb3 Collection](https://opensea.io/collection/learnweb3-badges) LearnWeb3 DAO is the fastest growing, and best, education platform to help new and experienced developers break into Web3. We provide 100% original,", 
+      "discordUrl": "https: //discord.gg/learnweb3dao", 
+      "externalUrl": "", 
+      "floorPrice": "", 
+      "imageUrl": "https://i.seadn.io/gae/cCHCHCSO01_vc7FqzjsSJ7FMfjb-8mlLC48rdEMe4iUWaW6jwTXvuxUBFTB5BuTFxUvhCMRd6vk3dtctsE-U4AgdlsKSZPBf4eVHVw?w=500&auto=format", 
+      "lastIngestedAt": "2024-05-14T19:21:06.000Z", 
+      "safelistRequestStatus": "not_requested", 
+      "twitterUsername": ""
+      }, 
+      "spamClassifications": [], 
+      "symbol": "", 
+      "tokenType": "ERC1155", 
+      "totalSupply": ""
+      }, 
+      "description": "This NFT represents the holder graduated from the Sophomore 🏕️ Track of LearnWeb3 DAO. LearnWeb3 DAO is a free education DAO that helps new and experienced developers break into Web3. \n Join us 👇 \n Website: https: //learnweb3.io \n Twitter: https: //twitter.com/LearnWeb3DAO \n Discord: https: //discord.gg/learnweb3dao", 
+      "image": {
+        "cachedUrl": "https://nft-cdn.alchemy.com/matic-mainnet/c363f22cc3d430a8ba16ee39dc898ee6",
+        "contentType": "image/jpeg",
+        "originalUrl": "https://ipfs.io/ipfs/bafybeicw3h5hg5bzgqxemjltpuqje6dfg27o6yesjuzkllrc3yq55sbequ/sophomore.jpeg",
+        "pngUrl": "https://res.cloudinary.com/alchemyapi/image/upload/convert-png/matic-mainnet/c363f22cc3d430a8ba16ee39dc898ee6",
+        "size": 588938,
+        "thumbnailUrl": "https://res.cloudinary.com/alchemyapi/image/upload/thumbnailv2/matic-mainnet/c363f22cc3d430a8ba16ee39dc898ee6"
+      },
+      "mint": {
+        "blockNumber": "",
+        "mintAddress": "",
+        "timestamp": "",
+        "transactionHash": ""
+      },
+      "name": "Sophomore Graduate 🏕️",
+      "owners": "",
+      "raw": {
+        "error": "",
+        "metadata": {
+          "description": "This NFT represents the holder graduated from the Sophomore 🏕️ Track of LearnWeb3 DAO. \n LearnWeb3 DAO is a free education DAO that helps new and experienced developers break into Web3. \n Join us 👇 \n Website: https: //learnweb3.io \n Twitter: https: //twitter.com/LearnWeb3DAO \n Discord: https: //discord.gg/learnweb3dao", 
+          "external_url": "https://www.learnweb3.io/",
+          "image": "ipfs://bafybeicw3h5hg5bzgqxemjltpuqje6dfg27o6yesjuzkllrc3yq55sbequ/sophomore.jpeg",
+          "name": "Sophomore Graduate 🏕️"
+        },
+        "tokenUri": "ipfs://bafybeichgpgvulih5qh3b4szuytvobkd5s7cndnftr6cc6q5mqalpgk44y/1.json"
+      },
+      "timeLastUpdated": "2024-05-07T14:29:37.575Z",
+      "tokenId": "1",
+      "tokenType": "ERC1155",
+      "tokenUri": "https://alchemy.mypinata.cloud/ipfs/bafybeichgpgvulih5qh3b4szuytvobkd5s7cndnftr6cc6q5mqalpgk44y/1.json"
+    }

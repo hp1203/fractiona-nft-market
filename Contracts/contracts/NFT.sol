@@ -7,15 +7,15 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract FractionalNFT is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
+contract FractionNFT is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
     uint256 private _nextTokenId;
 
-    constructor(address initialOwner)
-        ERC721("FractionalNFT", "FNFT")
-        Ownable(initialOwner)
+    constructor()
+        ERC721("FractionNFT", "FNFT")
+        Ownable(msg.sender)
     {}
 
-    function safeMint(address to, string memory uri) public onlyOwner {
+    function safeMint(address to, string memory uri) public {
         uint256 tokenId = _nextTokenId++;
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);

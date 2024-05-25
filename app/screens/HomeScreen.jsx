@@ -69,19 +69,19 @@ const HomeScreen = () => {
             showsHorizontalScrollIndicator={false}
             className="space-x-4"
           >
-            <View>
+            <View className="w-64">
               <NFTCard />
             </View>
 
-            <View>
+            <View className="w-64">
               <NFTCard />
             </View>
 
-            <View>
+            <View className="w-64">
               <NFTCard />
             </View>
 
-            <View>
+            <View className="w-64">
               <NFTCard />
             </View>
           </ScrollView>

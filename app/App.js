@@ -16,7 +16,7 @@ import {
 } from "@web3modal/wagmi-react-native";
 
 // 1. Get projectId at https://cloud.walletconnect.com
-const projectId = "3bcd9765c10a59cd34be1067d422ce67";
+const projectId = process.env.WALLETCONNECT_API_KEY;
 
 // 2. Create config
 const metadata = {

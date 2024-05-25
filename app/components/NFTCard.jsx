@@ -1,19 +1,24 @@
 import { useNavigation } from "@react-navigation/native";
 import { Image, Pressable, Text, View } from "react-native";
 
-const NFTCard = () => {
+const NFTCard = ({nftName, nftImage, contract, tokenId}) => {
   const navigation = useNavigation();
   return (
     <Pressable
       className="flex p-4 rounded-2xl border border-gray-800 space-y-3"
-      onPress={() => navigation.navigate("SingleNFT")}
+      onPress={() => navigation.navigate("SingleNFT", {
+        contract,
+        tokenId
+      })}
     >
       <Image
-        source={require("../assets/images/nfts/1.webp")}
+        source={{
+          uri: nftImage
+        }}
         resizeMode="cover"
-        className="h-64 w-52 rounded-xl"
+        className="h-64 w-full rounded-xl"
       />
-      <Text className="text-white font-semibold text-xl">Board Ape #2</Text>
+      <Text className="text-white font-semibold text-xl">{nftName}</Text>
       <View className="flex flex-row items-center justify-between">
         <View className="flex flex-row items-center space-x-2">
           {/* <MaterialCommunityIcons name='ethereum' size={20} color={tailwindColors.gray["300"]}/> */}

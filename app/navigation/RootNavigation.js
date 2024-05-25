@@ -4,6 +4,7 @@ import TabNavigation from "./TabNavigation";
 import tailwindColors from "../constants/tailwindColors";
 import { useSelector } from "react-redux";
 import SingleNFTScreen from "../screens/SingleNFTScreen";
+import FractionalizeNFTScreen from "../screens/FractionalizeNFTScreen";
 
 const RootNavigation = () => {
   const RootStack = createNativeStackNavigator();
@@ -42,6 +43,13 @@ const RootNavigation = () => {
       <RootStack.Screen
         name="SingleNFT"
         component={SingleNFTScreen}
+        options={{
+          headerShown: false
+        }}
+      />
+      <RootStack.Screen
+        name="FractionalizeNFT"
+        component={FractionalizeNFTScreen}
         options={{
           headerShown: false
         }}
