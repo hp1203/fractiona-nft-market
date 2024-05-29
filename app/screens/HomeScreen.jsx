@@ -70,19 +70,19 @@ const HomeScreen = () => {
             className="space-x-4"
           >
             <View className="w-64">
-              <NFTCard />
+              <NFTCard nftImage={require("../assets/images/nfts/1.webp")} nftName={"Test NFT 1"}/>
             </View>
 
             <View className="w-64">
-              <NFTCard />
+              <NFTCard nftImage={require("../assets/images/nfts/2.webp")} nftName={"Test NFT 2"}/>
             </View>
 
             <View className="w-64">
-              <NFTCard />
+              <NFTCard nftImage={require("../assets/images/nfts/3.jpeg")} nftName={"Test NFT 3"}/>
             </View>
 
             <View className="w-64">
-              <NFTCard />
+              <NFTCard nftImage={require("../assets/images/nfts/4.png")} nftName={"Test NFT 4"}/>
             </View>
           </ScrollView>
         </View>

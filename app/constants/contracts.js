@@ -1,10 +1,10 @@
 export default {
     cardona: {
         fractionalNFTFactory: {
-            address: "0xbF30dB84c6AA2Cb0a4b09B72a0295eB13f3Bbe0D",
+            address: "0x0372caeA197212b49C91a3B53E0458eA21E2FbA4",
         },
         fractionNFT: {
-            address: "0xCc7eb7c33dac50dE6424D4c872cB3C81617410FE"
+            address: "0x3F85FAF9Cd2B734395f6a5FEe4d0117b4A0Ed435"
         }
     }
 }

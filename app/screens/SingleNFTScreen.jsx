@@ -133,37 +133,46 @@ const SingleNFTScreen = () => {
               <Text className="text-base text-white font-normal">
                 {nft?.description}
               </Text>
-
-              <View className="flex border border-gray-800 p-3 rounded-xl flex-row items-center space-x-2">
-                <Image
-                  source={{
-                    uri: nft.collection.bannerImageUrl,
-                  }}
-                  className="w-16 h-16 rounded-full object-contain border border-gray-500"
-                />
-                <View>
-                  <Text className="text-gray-500 text-base font-semibold">
-                    Collection
-                  </Text>
-                  <Text className="text-white text-lg font-bold">
-                    {nft.collection.name}
-                  </Text>
+              {nft.collection && (
+                <View className="flex border border-gray-800 p-3 rounded-xl flex-row items-center space-x-2">
+                  <Image
+                    source={{
+                      uri:
+                        nft.collection !== undefined
+                          ? nft.collection.bannerImageUrl
+                          : "https://ralfvanveen.com/wp-content/uploads/2021/06/Placeholder-_-Glossary.svg",
+                    }}
+                    className="w-16 h-16 rounded-full object-contain border border-gray-500"
+                  />
+                  <View>
+                    <Text className="text-gray-500 text-base font-semibold">
+                      Collection
+                    </Text>
+                    <Text className="text-white text-lg font-bold">
+                      {nft.collection.name}
+                    </Text>
+                  </View>
                 </View>
-              </View>
+              )}
             </View>
           </>
         )}
       </Animated.ScrollView>
       {loading == false && nft !== null && (
-      <View className="flex w-full p-3 absolute bottom-0 bg-gray-900">
-        <Pressable className="rounded-full p-3 flex items-center justify-center bg-yellow-400" onPress={() => navigation.navigate("FractionalizeNFT", {
-          nft
-        })}>
-          <Text className="text-gray-900 text-xl font-semibold">
-            Fractionalize this NFT
-          </Text>
-        </Pressable>
-      </View>
+        <View className="flex w-full p-3 absolute bottom-0 bg-gray-900">
+          <Pressable
+            className="rounded-full p-3 flex items-center justify-center bg-yellow-400"
+            onPress={() =>
+              navigation.navigate("FractionalizeNFT", {
+                nft,
+              })
+            }
+          >
+            <Text className="text-gray-900 text-xl font-semibold">
+              Fractionalize this NFT
+            </Text>
+          </Pressable>
+        </View>
       )}
       <Animated.View
         style={headerAnimatedStyle}
@@ -196,7 +205,7 @@ export default SingleNFTScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingBottom:80
+    paddingBottom: 80,
   },
   image: {
     width: width,

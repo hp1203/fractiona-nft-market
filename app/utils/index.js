@@ -1,5 +1,8 @@
-export default function useUtils() {
+import * as Clipboard from "expo-clipboard";
+import { useToast } from "react-native-toast-notifications";
 
+export default function useUtils() {
+    const toast = useToast();
     const numberFormatter = (num, digits) => {
          const lookup = [
             { value: 1, symbol: "" },
@@ -17,8 +20,27 @@ export default function useUtils() {
         return item ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol : "0";
         // return num >= 1000 ? `${(num/1000).toFixed(digits)}K` : num;
     }
+
+    const shortenAddress = (address) => {
+        return `${address.slice(0, 6)}...${address.slice(
+          address.length - 4,
+          address.length
+        )}`;
+    };
+
+    const copyToClipboard = async (text) => {
+        await Clipboard.setString(text)
+        toast.show("Copied!", {
+            type:"custom_success",
+            placement: "top",
+            duration: 4000,
+            animationType: "zoom-in",
+          });
+    }
     
     return {
         numberFormatter,
+        shortenAddress,
+        copyToClipboard
     }
 }

@@ -107,7 +107,7 @@ const GettingStarted = () => {
             fractions.
           </Text>
 
-          <TouchableOpacity className="bg-gray-50 absolute bottom-8 flex flex-row p-1 rounded-full" onPress={login}>
+          <TouchableOpacity className="bg-gray-900 absolute bottom-8 flex flex-row p-1 rounded-full" onPress={login}>
             <View className="flex-1 p-4">
               <Text className="text-xl font-semibold">Start Experience</Text>
             </View>

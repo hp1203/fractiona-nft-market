@@ -1,3 +1,6 @@
+import 'react-native-gesture-handler';
+import "@walletconnect/react-native-compat";
+
 import { NavigationContainer } from "@react-navigation/native";
 import RootNavigation from "./navigation/RootNavigation";
 import { Provider } from "react-redux";
@@ -6,7 +9,6 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 import * as Clipboard from "expo-clipboard";
 
-import "@walletconnect/react-native-compat";
 import { WagmiConfig } from "wagmi";
 import { mainnet, polygon, arbitrum, polygonMumbai, polygonZkEvmTestnet } from "viem/chains";
 import {
@@ -14,6 +16,7 @@ import {
   defaultWagmiConfig,
   Web3Modal,
 } from "@web3modal/wagmi-react-native";
+import ToastProvider from './components/ToastProvider';
 
 // 1. Get projectId at https://cloud.walletconnect.com
 const projectId = process.env.WALLETCONNECT_API_KEY;
@@ -53,7 +56,9 @@ export default function App() {
       <PersistGate loading={null} persistor={persistor}>
         <WagmiConfig config={wagmiConfig}>
           <NavigationContainer>
+            <ToastProvider>
             <RootNavigation />
+            </ToastProvider>
           </NavigationContainer>
           <Web3Modal />
         </WagmiConfig>

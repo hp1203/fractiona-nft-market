@@ -8,6 +8,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import CustomTabBar from "./CustomTabBar";
 import tailwindColors from "../constants/tailwindColors";
 import UserNFTsScreen from "../screens/UserNFTsScreen";
+import ProfileScreen from "../screens/ProfileScreen";
   
 const TabNavigation = () => {
   const BottomTab = createBottomTabNavigator();
@@ -61,9 +62,10 @@ const TabNavigation = () => {
       />
       <BottomTab.Screen
         name="Settings"
-        component={HomeScreen}
+        component={ProfileScreen}
         options={{
-          title: "Settings",
+          headerShown: false,
+          title: "Profile",
           tabBarIcon: ({ color }) => (
             <MaterialIcons name="person" color={color} size={24} />
           ),

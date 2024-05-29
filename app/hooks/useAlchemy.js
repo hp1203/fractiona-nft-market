@@ -3,7 +3,7 @@ import { Alchemy, Network } from "alchemy-sdk";
 export default () => {
   const settings = {
     apiKey: process.env.ALCHEMY_API_KEY,
-    network: Network.POLYGONZKEVM_TESTNET,
+    network: Network.MATIC_AMOY,
   };
 
   const alchemy = new Alchemy(settings);
@@ -19,6 +19,7 @@ export default () => {
 
   const getNFTMetadata = async (contract, tokenId) => {
     const metadata = await alchemy.nft.getNftMetadata(contract, tokenId, {});
+    console.log(metadata);
     return metadata;
   };
 
