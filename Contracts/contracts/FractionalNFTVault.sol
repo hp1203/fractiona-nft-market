@@ -4,7 +4,7 @@ pragma solidity ^0.8.24;
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/utils/math/Math.sol";
-import "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
+import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 
 contract FractionalNFT is ERC20 {
     using Math for uint256;
@@ -28,16 +28,21 @@ contract FractionalNFT is ERC20 {
     mapping(uint256 => Sale) public sales;
     uint256 public saleCounter;
 
-    constructor(address _nftAddress, uint256 _tokenId, uint256 _totalFractions, address _priceFeed) ERC20("FractionalNFT", "FNFT") {
+    constructor(
+        address _nftAddress, 
+        uint256 _tokenId, 
+        uint256 _totalFractions, 
+        address _priceFeed
+    ) ERC20("FractionalNFT", "FNFT") {
         nft = IERC721(_nftAddress);
         tokenId = _tokenId;
         totalFractions = _totalFractions;
         nftOwner = msg.sender;
         priceFeed = AggregatorV3Interface(_priceFeed);
-        
+
         // Transfer the NFT to this contract
         nft.transferFrom(msg.sender, address(this), _tokenId);
-        
+
         // Mint fractional tokens to the owner
         _mint(msg.sender, _totalFractions);
 
@@ -54,10 +59,10 @@ contract FractionalNFT is ERC20 {
     function purchase(uint256 saleId, uint256 amount) external payable {
         Sale storage sale = sales[saleId];
         require(sale.amount >= amount, "Not enough fractions for sale");
-        
+
         uint256 ethPrice = getLatestPrice();
         uint256 totalPriceInEth = (sale.price * amount * 1e18) / ethPrice; // Convert price to ETH
-        
+
         require(msg.value >= totalPriceInEth, "Not enough ether sent");
 
         // Transfer fractional tokens
@@ -82,7 +87,7 @@ contract FractionalNFT is ERC20 {
     }
 
     function getLatestPrice() public view returns (uint256) {
-        (,int price,,,) = priceFeed.latestRoundData();
+        (, int price, , , ) = priceFeed.latestRoundData();
         return uint256(price) * 1e10; // Price in 18 decimals
     }
 }

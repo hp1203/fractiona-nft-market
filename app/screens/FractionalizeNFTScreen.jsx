@@ -1,4 +1,12 @@
-import { ActivityIndicator, Image, Pressable, ScrollView, Text, TextInput, View } from "react-native";
+import {
+  ActivityIndicator,
+  Image,
+  Pressable,
+  ScrollView,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import Layout from "../components/Layout";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import useUtils from "../utils";
@@ -7,35 +15,86 @@ import { useState } from "react";
 import { useContractWrite, usePrepareContractWrite } from "wagmi";
 import Contracts from "../constants/contracts";
 import FractionNFTFactoryAbi from "../constants/abis/FractionalNFTFactory.json";
+import FractionNFTAbi from "../constants/abis/FractionNFT.json";
 import { parseEther } from "viem";
+
 const FractionalizeNFTScreen = () => {
   const navigation = useNavigation();
   const { nft } = useRoute().params;
   const { shortenAddress } = useUtils();
   const [number, setNumber] = useState(0);
-  console.log("ATOken Id", nft);
+  // console.log("ATOken Id", nft);
 
-  const { config } = usePrepareContractWrite({
+  // const { nftConfig } = usePrepareContractWrite({
+  //   address: nft.contract.address,
+  //   abi: FractionNFTAbi,
+  //   functionName: "approve",
+  //   args: [Contracts.amoy.fractionalNFTFactory.address, BigInt(nft.tokenId)]
+  // });
+
+  // const {
+  //   data: nftData,
+  //   isLoading: isLoadingApprove,
+  //   isSuccess: isSuccessApprove,
+  //   write: approveNft,
+  // } = useContractWrite(nftConfig);
+
+  // const { factoryConfig } = usePrepareContractWrite({
+  //   address: Contracts.amoy.fractionalNFTFactory.address,
+  //   abi: FractionNFTFactoryAbi,
+  //   functionName: "createFractionalNFT",
+  //   args: [nft.contract.address, BigInt(nft.tokenId), parseEther(number.toString())]
+  // });
+
+  // const {
+  //   data: fractionData,
+  //   isLoading: isLoadingFraction,
+  //   isSuccess: isSuccessFraction,
+  //   write: fractionalize,
+  // } = useContractWrite(factoryConfig);
+
+  const {
+    data: nftData,
+    isLoading: isApproving,
+    isSuccess: isApproved,
+    write: approveNFT,
+  } = useContractWrite({
+    address: nft.contract.address,
+    abi: FractionNFTAbi,
+    functionName: "approve",
+  });
+
+  const {
+    data: fractionData,
+    isLoading: isFractioning,
+    isSuccess: isFractioned,
+    write: fractionalize,
+  } = useContractWrite({
     address: Contracts.amoy.fractionalNFTFactory.address,
     abi: FractionNFTFactoryAbi,
     functionName: "createFractionalNFT",
-    args: [nft.contract.address, nft.tokenId, parseEther(number.toString())]
   });
-  const {
-    data: fractionData,
-    isLoading: isLoadingFraction,
-    isSuccess: isSuccessFraction,
-    write: fractionalize,
-  } = useContractWrite(config);
+
+  const fractionalizeNFT = async () => {
+    await approveNFT({
+      args: [Contracts.amoy.fractionalNFTFactory.address, BigInt(nft.tokenId)],
+    });
+    fractionalize({
+      args: [
+        nft.contract.address,
+        BigInt(nft.tokenId),
+        parseEther(number.toString()),
+      ],
+    });
+  };
+
   return (
     <Layout>
       <ScrollView
         showsVerticalScrollIndicator="false"
         className="m-3 flex space-y-3"
       >
-        <View
-          className="flex flex-row p-4 rounded-2xl border border-gray-800 space-y-3"
-        >
+        <View className="flex flex-row p-4 rounded-2xl border border-gray-800 space-y-3">
           <Image
             source={{
               uri: nft.image.originalUrl || nft.image.cachedUrl,
@@ -64,21 +123,33 @@ const FractionalizeNFTScreen = () => {
           onChangeText={(text) => setNumber(text)}
           value={number}
         />
-        {isSuccessFraction && (
+        {/* {isSuccessFraction && (
             <Text style={{ textAlign: "center" }}>{JSON.stringify(fractionData)}</Text>
-        )}
+        )} */}
         <Pressable
           className="flex items-center justify-center bg-yellow-400 p-3 rounded-full"
-          onPress={() => fractionalize?.()}
-          disabled={isLoadingFraction}
+          onPress={() => fractionalizeNFT()}
+          disabled={isFractioning}
         >
-            {
-                isLoadingFraction ? (
-                    <ActivityIndicator/>
-                ) : (
-                    <Text className="text-gray-900 text-xl font-semibold">Make Fractions</Text>
-                )
-            }
+          {/* {isApproving && (
+            <Text className="text-gray-900 text-xl font-semibold">
+              Approving...
+            </Text>
+          )}
+          {isApproved && (
+            <Text className="text-gray-900 text-xl font-semibold">
+              Approved
+            </Text>
+          )} */}
+          {isFractioning ? (
+            <Text className="text-gray-900 text-xl font-semibold">
+              Fractioning...
+            </Text>
+          ) : (
+            <Text className="text-gray-900 text-xl font-semibold">
+              Make Fractions
+            </Text>
+          )}
         </Pressable>
       </ScrollView>
     </Layout>
