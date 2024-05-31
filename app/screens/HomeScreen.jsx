@@ -1,4 +1,4 @@
-import { Pressable, ScrollView, Text, View } from "react-native";
+import { Image, Pressable, ScrollView, Text, View } from "react-native";
 import Layout from "../components/Layout";
 import Header from "../components/Header";
 import { useState } from "react";
@@ -70,19 +70,27 @@ const HomeScreen = () => {
             className="space-x-4"
           >
             <View className="w-64">
-              <NFTCard nftImage={require("../assets/images/nfts/1.webp")} nftName={"Test NFT 1"}/>
+              <NFTCard nftImage={Image.resolveAssetSource(require("../assets/images/nfts/1.webp")).uri} nftName={"Test NFT 1"}/>
             </View>
 
             <View className="w-64">
-              <NFTCard nftImage={require("../assets/images/nfts/2.webp")} nftName={"Test NFT 2"}/>
+              <NFTCard nftImage={Image.resolveAssetSource(require("../assets/images/nfts/2.webp")).uri} nftName={"Test NFT 2"}/>
             </View>
 
             <View className="w-64">
-              <NFTCard nftImage={require("../assets/images/nfts/3.jpeg")} nftName={"Test NFT 3"}/>
+              <NFTCard nftImage={Image.resolveAssetSource(require("../assets/images/nfts/3.jpeg")).uri} nftName={"Test NFT 3"}/>
             </View>
 
             <View className="w-64">
-              <NFTCard nftImage={require("../assets/images/nfts/4.png")} nftName={"Test NFT 4"}/>
+              <NFTCard nftImage={Image.resolveAssetSource(require("../assets/images/nfts/4.png")).uri} nftName={"Test NFT 4"}/>
+            </View>
+
+            <View className="w-64">
+              <NFTCard nftImage={Image.resolveAssetSource(require("../assets/images/nfts/5.webp")).uri} nftName={"Test NFT 5"}/>
+            </View>
+
+            <View className="w-64">
+              <NFTCard nftImage={Image.resolveAssetSource(require("../assets/images/nfts/6.png")).uri} nftName={"Test NFT 6"}/>
             </View>
           </ScrollView>
         </View>

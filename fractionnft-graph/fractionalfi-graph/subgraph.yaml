@@ -1,0 +1,29 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: FractionalNFTFactory
+    network: polygon-amoy
+    source:
+      address: "0xD85CBF194013f1ead976cd4E440A414229C6c789"
+      abi: FractionalNFTFactory
+      startBlock: 7700221
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - ContractCreationFailed
+        - FractionalNFTCreated
+      abis:
+        - name: FractionalNFTFactory
+          file: ./abis/FractionalNFTFactory.json
+      eventHandlers:
+        - event: ContractCreationFailed(indexed address,string)
+          handler: handleContractCreationFailed
+        - event: FractionalNFTCreated(indexed address,indexed address)
+          handler: handleFractionalNFTCreated
+      file: ./src/fractional-nft-factory.ts

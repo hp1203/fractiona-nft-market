@@ -1,0 +1,17 @@
+type ContractCreationFailed @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  reason: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type FractionalNFTCreated @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  fractionalNFT: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

@@ -21,6 +21,25 @@
             },
             {
                 "indexed": false,
+                "internalType": "string",
+                "name": "reason",
+                "type": "string"
+            }
+        ],
+        "name": "ContractCreationFailed",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
                 "internalType": "address",
                 "name": "fractionalNFT",
                 "type": "address"
@@ -28,25 +47,6 @@
         ],
         "name": "FractionalNFTCreated",
         "type": "event"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "name": "contractOwners",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
     },
     {
         "inputs": [
@@ -80,25 +80,6 @@
             }
         ],
         "name": "deployedContracts",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_contract",
-                "type": "address"
-            }
-        ],
-        "name": "getContractOwner",
         "outputs": [
             {
                 "internalType": "address",

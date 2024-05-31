@@ -3,6 +3,7 @@ import { Image, Pressable, Text, View } from "react-native";
 
 const NFTCard = ({nftName, nftImage, contract, tokenId}) => {
   const navigation = useNavigation();
+  // console.log(nftImage);
   return (
     <Pressable
       className="flex p-4 rounded-2xl border border-gray-800 space-y-3"
