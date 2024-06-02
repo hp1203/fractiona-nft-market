@@ -76,16 +76,19 @@ const FractionalizeNFTScreen = () => {
   });
 
   const fractionalizeNFT = async () => {
+    // parseEther(number.toString())
     await approveNFT({
       args: [Contracts.amoy.fractionalNFTFactory.address, BigInt(nft.tokenId)],
     });
-    fractionalize({
-      args: [
-        nft.contract.address,
-        BigInt(nft.tokenId),
-        parseEther(number.toString()),
-      ],
-    });
+    setTimeout(function () {
+      fractionalize({
+        args: [
+          nft.contract.address,
+          BigInt(nft.tokenId),
+          parseEther(number.toString()),
+        ],
+      });
+    }, 5000);
   };
 
   return (

@@ -85,7 +85,7 @@ const uploadToIpfs = async () => {
         axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", formData, {
             headers: {
                 "Accept": 'application/json',
-                "Authorization": `Bearer ${import.meta.env.PINATA_API_JWT}`,
+                "Authorization": `Bearer ${process.env.PINATA_API_JWT}`,
                 "Content-Type": "multipart/form-data"
             }
         }).then(res => res.json()).then(console.log).catch(error => console.log(error))

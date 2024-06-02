@@ -29,10 +29,10 @@ console.log(projectId);
 const metadata = {
   name: "FractionalFi",
   description: "Fractionalized NFT Marketplace",
-  url: "https://nftfraction.com",
+  url: "https://fractionalfi.com",
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
   redirect: {
-    native: "fractional-fi://",
+    native: "fractionalfi://",
   },
 };
 
@@ -54,13 +54,11 @@ const { chains, provider } = configureChains(
   [jsonRpcProvider({ rpc: (chain) => ({ http: chain.rpcUrls.public }) })]
 );
 
-
 // const chains = [mainnet, polygon, arbitrum, polygonMumbai, polygonZkEvmTestnet];
 
 const wagmiConfig = defaultWagmiConfig({ chains, provider, projectId, metadata });
 
 // W3MChainPresets.chains.putIfAbsent('80002', () => polygonAmoy);
-
 
 // 3. Create modal
 createWeb3Modal({

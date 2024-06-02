@@ -17,12 +17,17 @@ const TabNavigation = () => {
     <BottomTab.Navigator
       initialRouteName="Home"
       screenOptions={{
-        tabBarActiveTintColor: "#fdfdfd",
+        headerShadowVisible: false,
         headerTitleStyle:{
           fontWeight: "600",
           fontSize: 24
         },
-        headerTintColor: tailwindColors.cyan[500],
+        headerStyle: {
+          backgroundColor: tailwindColors.gray["900"],
+          borderColor: tailwindColors.gray["800"],
+          height: 80
+        },
+        headerTintColor: tailwindColors.yellow[400],
       }}
           tabBar={(props) => <CustomTabBar {...props} />}
         // tabBar={props => <MyTabBar {...props} />}
@@ -44,7 +49,7 @@ const TabNavigation = () => {
         options={{
           tabBarLabel: "NFTs",
           title: "Your Fractional NFTs",
-          headerShown: false,
+          // headerShown: false,
           tabBarIcon: ({ color }) => (
             <Ionicons name="wallet-outline" color={color} size={24} />
           ),

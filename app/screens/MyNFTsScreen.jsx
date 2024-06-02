@@ -18,7 +18,7 @@ const MyNFTsScreen = () => {
         .then((res) => {
           setNfts(res);
           setLoading(false);
-          console.log("NFTs",res[res.length - 1]);
+          // console.log("NFTs",res[res.length - 1]);
         })
         .catch((err) => {
           setLoading(false);
